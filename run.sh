@@ -19,6 +19,8 @@ fi
 if [[ ! -f /.restored ]]; then
     /restore_apel_wordpress.sh
     touch /.restored
+else 
+    echo "=> Apel wordpress site data are already uploaded."
 fi
 
 exec supervisord -n

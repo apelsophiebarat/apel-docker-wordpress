@@ -3,8 +3,12 @@ FROM imankulov/wordpress-ssh
 
 MAINTAINER Eric Vantillard <eric.vantillard@evaxion.fr>
 
+ENV APPKEY changeit
+ENV APPSECRET changeit
+ENV OAUTH_ACCESS_TOKEN changeit
+ENV OAUTH_ACCESS_TOKEN_SECRET changeit
+
 ENV ROOT_PASSWORD changeit
-ENV APPSECRET zdnye99m8ze3kmo
 
 COPY install_dropbox_uploader.sh /install_dropbox_uploader.sh
 COPY restore_apel_wordpress.sh /restore_apel_wordpress.sh
