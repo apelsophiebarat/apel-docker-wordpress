@@ -1,9 +1,9 @@
 #!/bin/sh
 echo "=> Install curl"
-sudo apt-get install -y curl
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y curl
 
 echo "=> Install dropbox uploader"
-git clone https://github.com/andreafabrizi/Dropbox-Uploader
+git clone https://github.com/andreafabrizi/Dropbox-Uploader 2>&1
 
 cat > ~/.dropbox_uploader <<- EOF
 APPKEY=u5q2rly67k9pp6e
