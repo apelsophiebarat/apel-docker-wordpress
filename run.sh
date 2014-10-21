@@ -17,8 +17,8 @@ else
 fi
 
 if [[ ! -f /.restored ]]; then
-    /restore_wordpress_apel.sh
+    /restore_apel_wordpress.sh
+    touch /.restored
 fi
-
 
 exec supervisord -n

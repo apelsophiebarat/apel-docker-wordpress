@@ -1,20 +1,21 @@
-FROM tutum/wordpress
-#FROM imankulov/wordpress-ssh
+FROM imankulov/wordpress-ssh
+#FROM tutum/wordpress
+
 MAINTAINER Eric Vantillard <eric.vantillard@evaxion.fr>
 
-EXPOSE 80 3306
-
-ENV RESTORE_DATE 20140119_1205
-
-ENV ROOT_PASSWORD foobar
-ENV APPKEY u5q2rly67k9pp6e
+ENV ROOT_PASSWORD changeit
 ENV APPSECRET zdnye99m8ze3kmo
 
-COPY content.tar.gz /restore/20140119_1205/content.tar.gz
-
-COPY restore_wordpress_apel.sh /restore_wordpress_apel.sh
+COPY install_dropbox_uploader.sh /install_dropbox_uploader.sh
+COPY restore_apel_wordpress.sh /restore_apel_wordpress.sh
 COPY run.sh /run.sh
 
-RUN chmod +x /*.sh 
+RUN chmod +x /*.sh
+
+COPY content.tar.gz /restore/content.tar.gz
+
+RUN /install_dropbox_uploader.sh
+
+EXPOSE 22 80 3306
 
 CMD ["/run.sh"]
