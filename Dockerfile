@@ -1,5 +1,5 @@
-FROM imankulov/wordpress-ssh
-#FROM tutum/wordpress
+#FROM imankulov/wordpress-ssh
+FROM tutum/wordpress
 
 MAINTAINER Eric Vantillard <eric.vantillard@evaxion.fr>
 
@@ -16,10 +16,11 @@ COPY run.sh /run.sh
 
 RUN chmod +x /*.sh
 
-COPY content.tar.gz /restore/content.tar.gz
+#COPY content.tar.gz /restore/content.tar.gz
 
 RUN /install_dropbox_uploader.sh
 
-EXPOSE 22 80 3306
+#EXPOSE 22 80 3306
+EXPOSE 80
 
 CMD ["/run.sh"]
